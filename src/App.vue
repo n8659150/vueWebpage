@@ -1,30 +1,35 @@
 <template>
   <div id="app" style="height:100%">
-    <mainHeader></mainHeader>
-    <!--{{msg}}-->
-    <mainNav></mainNav>
-    <mainContent></mainContent>
+    <mainHeader  :method="toggleMenu" :menuOpened="isMenuOpened"></mainHeader>
+    <mainNav :menuOpened="isMenuOpened"></mainNav>
+    <mainContent :menuOpened="isMenuOpened"></mainContent>
   </div>
 </template>
 
 <script>
-import mainHeader from './mainHeader.vue';
-import mainNav from './mainNav.vue';
-import mainContent from './mainContent.vue'
+import mainHeader from './components/mainHeader.vue';
+import mainNav from './components/mainNav.vue';
+import mainContent from './components/mainContent.vue';
 
 export default {
   name: 'app',
-  // data () {
-  //   return {
-  //     msg: 'Welcome to Your Vue.js App'
-  //   }
-  // },
-  components:{
-    mainHeader:mainHeader,
-    mainNav:mainNav,
-    mainContent:mainContent
+  components: {
+    mainHeader: mainHeader,
+    mainNav: mainNav,
+    mainContent: mainContent
+  },
+  data () {
+    return {
+      isMenuOpened:false
+    }
+  },
+  methods:{
+    toggleMenu(){
+      this.isMenuOpened = !this.isMenuOpened
+    }
   }
 }
 </script>
 <style>
+
 </style>
