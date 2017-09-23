@@ -25,13 +25,18 @@ import bottomLinks from './bottomLinks.vue';
 
 export default {
 	name: 'mainContent',
-	props:['menuOpened'],
+	// props:['menuOpened'],
 	components: {
 		mainContentArea: mainContentArea,
 		copyrights: copyrights,
 		socialLinks: socialLinks,
 		bottomLinks: bottomLinks
-	}
+	},
+	computed:{
+	  menuOpened () {
+	    return this.$store.state.menuOpened
+	  }
+  	}
 }
 </script>
 

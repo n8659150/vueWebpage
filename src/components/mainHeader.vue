@@ -14,16 +14,22 @@
 <script>
 export default {
   name: 'mainHeader',
-  props:['menuOpened','method'],
+  // props:['menuOpened','method'],
   data() {
     return {
       logoText: 'Quatro',
-      menuToggle: 'Menu'
+      menuToggle: 'Menu',
+      // menuOpened:this.$store.state.menuOpened 此处应使用计算属性 computed property，直接写在data中不是双向绑定
     }
   },
   methods:{
     menuClick:function(){
-      this.method()
+      this.$store.commit("toggleMenu");
+    }
+  },
+  computed:{
+    menuOpened () {
+      return this.$store.state.menuOpened
     }
   }
 }

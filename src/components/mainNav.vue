@@ -14,7 +14,7 @@ import mainNavContent from './mainNavContent.vue'
 
 export default {
   name: 'mainNav',
-  props:['menuOpened'],
+  // props:['menuOpened'],
   components: {
     mainNavContent: mainNavContent
   },
@@ -22,6 +22,11 @@ export default {
     return {
       navTitle: 'Site Pages',
       navItems: [{ name: 'Home', url: '#' }, { name: 'About', url: '#' }, { name: 'Portfolio', url: '#' }, { name: 'Blog', url: '#' }, { name: 'FAQ', url: '#' }, { name: 'Contact', url: '#' }]
+		}
+  },
+  computed:{
+    menuOpened () {
+      return this.$store.state.menuOpened
     }
   }
 }
